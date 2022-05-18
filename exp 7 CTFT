@@ -1,0 +1,22 @@
+clc 
+clear all
+t=-5:0.001:5
+ut=(t>=-2)
+ut1=(t>=2)
+rectt=ut-ut1
+subplot (2,1,1)
+plot (t,rectt)
+xlabel('Time')
+ylabel('Rect(t)')   
+title('Rectangular pulse Aryaman Gupta 102056026');
+k=1
+for f=-5:0.001:5
+    x(k)=trapz(rectt.*exp(-j*2*pi*f*t));
+    k=k+1;
+end
+f=-5:0.001:5;
+subplot (2,1,2)
+plot (f,x)
+xlabel('Freq')
+ylabel('x(k)')
+title('CTFT Aryaman Gupta 1020560265')
