@@ -1,0 +1,23 @@
+clc
+clear all;
+n = -10:0.1:10
+u1=n>=-1
+u2=n>=1
+rectn = u1-u2
+subplot(2,1,1)
+stem(n,rectn)
+grid on;
+xlabel('n')
+ylabel('amplitude')
+title('rectangular pulse Aryman Gupta 102056026')
+z=0;
+for m = -10*pi:0.1:10*pi
+    z=z+1;
+    y(z)=sum(rectn.*exp(-j*m*n))
+end
+m=-10*pi:0.1:10*pi;
+subplot(2,1,2);
+plot(m,y);
+xlabel('Frequency');
+ylabel('amplitude');
+title('DTFT, Aryaman Gupta 102056026');
