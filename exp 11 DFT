@@ -1,0 +1,27 @@
+clc
+clear all
+X=[1 2 3 4 5];
+N=length(X);
+S=zeros(1,N);
+for k=1:N
+    for n=1:N
+        S(k)=S(k)+X(n)*exp(-j*2*pi*(k-1)*(n-1)/N);
+    end
+end
+
+subplot(2,2,1)
+stem(X)
+title('Given Sequence')
+b=angle(S)
+subplot(2,2,2)
+stem(b)
+title('phase spectrum')
+y=fft(X)
+subplot(2,2,3)
+stem(y)
+title('DFT using fft function')
+subplot(2,2,4)
+stem(S)
+title('DFT using formula')
+legend('Nandini Goyal 102056032')
+%% 
