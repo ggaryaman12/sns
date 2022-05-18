@@ -1,0 +1,27 @@
+clc
+close all
+clear all
+xn=[1 2]
+hn=[1 2 4]
+subplot(3,3,1)
+stem(xn)
+title('Given signal x(n): Aryaman Gupta 102056026')
+subplot(3,1,2)
+stem(hn)
+title('Given signal h(n): Aryaman Gupta 102056026')
+Nx=length(xn)
+Nh=length(hn)
+X=[xn,zeros(1,Nx)];
+H=[hn,zeros(1,Nh)];
+Ny=Nx+Nh-1;
+yn=zeros(Ny);
+for i=1:Ny
+    for j=1:Nh
+        if(i-j+1>0)
+            yn(i)=yn(i)+X(j)*H(i-j+1)
+        end
+    end
+end
+subplot(3,1,3)
+stem(yn)
+title('convluted signal Aryaman Gupta 102056026')
